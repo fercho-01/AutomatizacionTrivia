@@ -17,7 +17,7 @@ namespace PruebasTrivia.Test
     {
         IWebDriver driver;
         Loggin login;
-        String url = "http://localhost:8081/triviador2";
+        String url = Constans.url;
         [OneTimeSetUp]
         public void setup()
         {
@@ -67,7 +67,8 @@ namespace PruebasTrivia.Test
             Thread.Sleep(10000);
             String currentUrl = driver.Url;
             driver.Navigate().GoToUrl(url + "/users/logout");
-            Assert.IsTrue("http://localhost:8081/triviador2/questions".Equals(currentUrl));
+            String urlQuestions = Constans.url + "/questions";
+            Assert.IsTrue(urlQuestions.Equals(currentUrl));
             
         }
         [OneTimeTearDown]
